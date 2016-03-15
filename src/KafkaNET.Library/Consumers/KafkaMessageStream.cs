@@ -39,6 +39,11 @@ namespace Kafka.Client.Consumers
 
         private IDecoder<TData> decoder;
 
+        public KafkaMessageStream()
+        {
+
+        }
+
         internal KafkaMessageStream(string topic, BlockingCollection<FetchedDataChunk> queue, int consumerTimeoutMs, IDecoder<TData> decoder)
         {
             this.topic = topic;
