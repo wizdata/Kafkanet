@@ -373,9 +373,12 @@ namespace Kafka.Client.Helper
             }
             return -1;
         }
+        public void SetEarliestOffset(string topic, int partitionId, long earliestOffset)
+        {
+            TopicOffsetEarliest[topic][partitionId] = earliestOffset;
+        }
 
         #endregion
-
 
         #region Thread safe producer pool
         public int InitializeProducerPoolForTopic(short versionId, string clientId, int correlationId, string topic, bool forceRefreshMetadata, ProducerConfiguration producerConfigTemplate, bool forceRecreateEvenHostPortSame)
